@@ -1,22 +1,21 @@
 import PropTypes from 'prop-types';
-import { Section, Title,StatList, Item } from './Statistics.styled';
+import { Section, Title, StatList, Item } from './Statistics.styled';
 
 export const Statistics = ({ title, stats }) => {
   return (
     <Section>
       {title && <Title>{title}</Title>}
-      
+
       <StatList>
-      {stats.map(({doc:id,label, percentage})=> (
-        <Item key={id}>
-           <>
-      <span>{label}</span>
-      <span>{percentage}%</span>
-    </>
-        </Item>
-      ))}
-    </StatList>
-      
+        {stats.map(({ id, label, percentage }) => (
+          <Item key={id}>
+            <>
+              <span>{label}</span>
+              <span>{percentage}%</span>
+            </>
+          </Item>
+        ))}
+      </StatList>
     </Section>
   );
 };
@@ -30,5 +29,4 @@ Statistics.propTypes = {
       percentage: PropTypes.number.isRequired,
     })
   ).isRequired,
-  
 };
